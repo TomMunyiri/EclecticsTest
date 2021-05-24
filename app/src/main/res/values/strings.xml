@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Eclectics</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="setup_account">SETUP ACCOUNT</string>
+    <string name="login">Login</string>
+    <string name="login_capital">LOGIN</string>
+    <string name="use_biometric">USE BIOMETRIC LOGIN</string>
+    <string name="connect_and_start_your_shift_now">Connect and start your Shift now</string>
+    <string name="please_enter_your_phone_number">Please enter your phone number</string>
+    <string name="_254">+254</string>
+    <string name="access_your_portal_quickly_and_safely">Access your portal quickly and safely</string>
+    <string name="please_authenticate_your_biometrics_details">Please authenticate your biometrics details</string>
+    <string name="touch_the_fingerprint_sensor">Touch the fingerprint sensor</string>
+    <string name="setup_biometric_login">SETUP BIOMETRIC LOGIN</string>
+    <string name="skip">SKIP</string>
+    <string name="hello_alex">Hello, Alex</string>
+    <string name="last_logged_in_thursday_8_00am">Last logged in Thursday 8:00AM</string>
+</resources>

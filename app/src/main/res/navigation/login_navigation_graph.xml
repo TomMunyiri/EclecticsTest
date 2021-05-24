@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation_graph"
+    app:startDestination="@id/loginHomeFragment">
+
+    <fragment
+        android:id="@+id/loginHomeFragment"
+        android:name="com.tommunyiri.eclectics.ui.fragments.auth.LoginHomeFragment"
+        android:label="login_home_fragment"
+        tools:layout="@layout/login_home_fragment" >
+        <action
+            android:id="@+id/action_loginHomeFragment_to_biometricLoginFragment"
+            app:destination="@id/biometricLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/biometricLoginFragment"
+        android:name="com.tommunyiri.eclectics.ui.fragments.auth.BiometricLoginFragment"
+        android:label="biometric_login_fragment"
+        tools:layout="@layout/biometric_login_fragment" />
+</navigation>

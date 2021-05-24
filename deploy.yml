@@ -1,0 +1,8 @@
+title: Google Play Deploy
+summary: Uploads your Android app to Google Play.
+description: |-
+
+  The Step uploads your Android app to Google Play. It works with both APK and AAB files.
+
+  Please note that in order to successfully use this Step, you must [upload your first APK or AAB file manually](https://support.google.com/googleplay/android-developer/answer/9859152?hl=en&visit_id=637407764704794872-3953166533&rd=1), using Google's own web interface!
+  Once you uploaded one APK or AAB of your app to Google Play manually, you can use our Step for all subsequent versions.
