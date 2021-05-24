@@ -55,11 +55,11 @@ class WelcomeScreen : AppCompatActivity() {
                 RecyclerView.OVER_SCROLL_NEVER
 
         findViewById<MaterialButton>(R.id.btnSetUpAccount).setOnClickListener {
-            navigateToHomeActivity()
+            navigateToLoginActivity()
         }
     }
 
-    private fun navigateToHomeActivity() {
+    private fun navigateToLoginActivity() {
         startActivity(Intent(applicationContext, LoginActivity::class.java))
         finish()
     }

@@ -48,6 +48,7 @@
             android:textColor="@color/blue"
             android:textSize="18sp"/>
         <TextView
+            android:textStyle="bold"
             android:padding="5dp"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -55,8 +56,8 @@
             android:layout_height="wrap_content"
             android:text="@string/connect_and_start_your_shift_now"/>
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:padding="5dp"
+            app:boxBackgroundColor="@color/bg"
+            android:background="@color/bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/please_enter_your_phone_number">
@@ -70,10 +71,12 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="3dp"
             android:paddingStart="40dp"
             android:paddingEnd="40dp"
-            android:layout_marginTop="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
             android:text="@string/login_capital"
             android:textAllCaps="false"
             android:textSize="14sp"
@@ -85,16 +88,19 @@
             android:id="@+id/btnBiometricLogin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:paddingStart="40dp"
             android:paddingEnd="40dp"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="3dp"
             android:text="@string/use_biometric"
             android:textAllCaps="false"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@color/blue"
-            app:cornerRadius="20dp" />
+            app:cornerRadius="20dp"
+            app:strokeColor="@color/blue"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
