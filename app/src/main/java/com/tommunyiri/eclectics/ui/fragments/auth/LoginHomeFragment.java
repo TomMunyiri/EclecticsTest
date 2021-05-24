@@ -34,7 +34,9 @@ public class LoginHomeFragment extends Fragment {
         View view=binding.getRoot();
         binding.btnBiometricLogin.setOnClickListener(v->{
             Navigation.findNavController(v).navigate(R.id.action_loginHomeFragment_to_biometricLoginFragment);
-            //startActivity(new Intent(requireContext(), MainActivity.class));
+        });
+        binding.btnPinLogin.setOnClickListener(v->{
+            Navigation.findNavController(v).navigate(R.id.action_loginHomeFragment_to_pinLoginFragment);
         });
         return view;
     }

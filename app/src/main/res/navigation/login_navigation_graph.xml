@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_loginHomeFragment_to_biometricLoginFragment"
             app:destination="@id/biometricLoginFragment" />
+        <action
+            android:id="@+id/action_loginHomeFragment_to_pinLoginFragment"
+            app:destination="@id/pinLoginFragment" />
     </fragment>
     <fragment
         android:id="@+id/biometricLoginFragment"
         android:name="com.tommunyiri.eclectics.ui.fragments.auth.BiometricLoginFragment"
         android:label="biometric_login_fragment"
         tools:layout="@layout/biometric_login_fragment" />
+    <fragment
+        android:id="@+id/pinLoginFragment"
+        android:name="com.tommunyiri.eclectics.ui.fragments.auth.PinLoginFragment"
+        android:label="pin_login_fragment"
+        tools:layout="@layout/pin_login_fragment" />
 </navigation>
