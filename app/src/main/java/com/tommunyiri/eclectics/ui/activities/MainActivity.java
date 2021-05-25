@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private String TAG = "Main Activity";
     private ArticlesListAdapter articlesListAdapter;
     private List<Article> articlesList;
-    final PeriodicWorkRequest periodicWorkRequest
+    PeriodicWorkRequest periodicWorkRequest
             = new PeriodicWorkRequest.Builder(FetchArticlesWorker.class, 2, TimeUnit.MINUTES)
             .build();
 
