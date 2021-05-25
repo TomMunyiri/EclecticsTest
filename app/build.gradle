@@ -112,4 +112,7 @@ dependencies {
 
     // optional - RxJava2 support
     implementation "androidx.work:work-rxjava2:$work_version"
+
+    //moshi
+    implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
 }

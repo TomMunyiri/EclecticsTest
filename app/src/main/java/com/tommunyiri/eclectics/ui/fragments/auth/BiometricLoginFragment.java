@@ -30,14 +30,11 @@ public class BiometricLoginFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding=BiometricLoginFragmentBinding.inflate(inflater,container,false);
         View view=binding.getRoot();
-        Log.d(TAG, "onCreateView: clicked");
         binding.ivFingerPrint.setOnClickListener(v->{
-            Log.d(TAG, "onCreateView: clicked");
             startActivity(new Intent(requireContext(), MainActivity.class));
             requireActivity().finish();
         });
         binding.btnSkip.setOnClickListener(v->{
-            Log.d(TAG, "onCreateView: clicked");
             startActivity(new Intent(requireContext(),MainActivity.class));
             requireActivity().finish();
         });

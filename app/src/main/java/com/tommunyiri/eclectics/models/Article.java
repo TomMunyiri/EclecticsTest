@@ -1,8 +1,13 @@
 package com.tommunyiri.eclectics.models;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "articles")
 public class Article {
     @SerializedName("source")
     @Expose
@@ -10,6 +15,8 @@ public class Article {
     @SerializedName("author")
     @Expose
     private String author;
+    @NonNull
+    @PrimaryKey
     @SerializedName("title")
     @Expose
     private String title;
