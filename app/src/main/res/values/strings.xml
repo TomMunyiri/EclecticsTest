@@ -28,4 +28,5 @@
     <string name="_3">3</string>
     <string name="_0">0</string>
     <string name="_continue">CONTINUE</string>
+    <string name="added_to_database">Saved to database</string>
 </resources>

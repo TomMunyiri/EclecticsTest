@@ -1,36 +1,31 @@
 package com.tommunyiri.eclectics.ui.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.work.BackoffPolicy;
 import androidx.work.ExistingPeriodicWorkPolicy;
-import androidx.work.OneTimeWorkRequest;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
-import androidx.work.Worker;
-import androidx.work.WorkerParameters;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.tommunyiri.eclectics.R;
 import com.tommunyiri.eclectics.adapters.ArticlesListAdapter;
 import com.tommunyiri.eclectics.databinding.ActivityMainBinding;
 import com.tommunyiri.eclectics.models.Article;
-import com.tommunyiri.eclectics.ui.fragments.auth.LoginHomeViewModel;
 import com.tommunyiri.eclectics.viewmodels.ArticlesViewModel;
 import com.tommunyiri.eclectics.worker.FetchArticlesWorker;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
     private ArticlesViewModel articlesViewModel;
@@ -67,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     if (articlesList.size() > 0) {
                         articlesListAdapter = new ArticlesListAdapter(articlesList, this, MainActivity.this);
                         binding.rvArticles.setAdapter(articlesListAdapter);
+                        persistWithRoom(articlesList);
                     } else {
                         //display a message that there are no articles
                     }
@@ -75,6 +71,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void persistWithRoom(List<Article> articleList){
+        for (Article article:articleList) {
+            CompositeDisposable compositeDisposable=new CompositeDisposable();
+            compositeDisposable.add(articlesViewModel.addArticleToDatabase(article)
+                    .subscribeOn(Schedulers.computation())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(() -> {
+                        Toast.makeText(getApplicationContext(), getString(R.string.added_to_database), Toast.LENGTH_SHORT).show();
+                        compositeDisposable.dispose();
+                    }));
+        }
     }
 
 }
