@@ -36,7 +36,7 @@ public class FetchArticlesWorker extends Worker {
         Log.d(TAG, "doWork: "+Result.success());
         displayNotification("Eclectics","Fetching Articles");
         Log.d(TAG, "doWork: "+getArticles().toString());
-        return Result.success();
+        return Result.retry();
     }
 
     private void displayNotification(String title, String task) {
