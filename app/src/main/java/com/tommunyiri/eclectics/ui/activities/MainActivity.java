@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private String TAG = "Main Activity";
     private ArticlesListAdapter articlesListAdapter;
     private List<Article> articlesList;
-    PeriodicWorkRequest periodicWorkRequest
-            = new PeriodicWorkRequest.Builder(FetchArticlesWorker.class, 2, TimeUnit.MINUTES)
-            .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +44,10 @@ public class MainActivity extends AppCompatActivity {
         binding.rvArticles.setLayoutManager(new LinearLayoutManager(this));
         binding.srArticles.setOnRefreshListener(this::fetchArticles);
         fetchArticles();
-        WorkManager.getInstance().enqueueUniquePeriodicWork("Eclectics",
-                ExistingPeriodicWorkPolicy.REPLACE, periodicWorkRequest);
+        PeriodicWorkRequest periodicWorkRequest
+                = new PeriodicWorkRequest.Builder(FetchArticlesWorker.class, 1, TimeUnit.MINUTES)
+                .build();
+        WorkManager.getInstance(this).enqueue(periodicWorkRequest);
         setContentView(view);
     }
 
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     .subscribeOn(Schedulers.computation())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(() -> {
-                        Toast.makeText(getApplicationContext(), getString(R.string.added_to_database), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), getString(R.string.added_to_database), Toast.LENGTH_SHORT).show();
                         compositeDisposable.dispose();
                     }));
         }
