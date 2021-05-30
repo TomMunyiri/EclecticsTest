@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         binding.srArticles.setOnRefreshListener(this::fetchArticles);
         fetchArticles();
         PeriodicWorkRequest periodicWorkRequest
-                = new PeriodicWorkRequest.Builder(FetchArticlesWorker.class,2, TimeUnit.MINUTES)
+                = new PeriodicWorkRequest.Builder(FetchArticlesWorker.class, 15,
+                TimeUnit.MINUTES, 5, TimeUnit.MINUTES)
                 .build();
         WorkManager.getInstance(this).enqueue(periodicWorkRequest);
         setContentView(view);
@@ -72,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void persistWithRoom(List<Article> articleList){
-        for (Article article:articleList) {
-            CompositeDisposable compositeDisposable=new CompositeDisposable();
+    private void persistWithRoom(List<Article> articleList) {
+        for (Article article : articleList) {
+            CompositeDisposable compositeDisposable = new CompositeDisposable();
             compositeDisposable.add(articlesViewModel.addArticleToDatabase(article)
                     .subscribeOn(Schedulers.computation())
                     .observeOn(AndroidSchedulers.mainThread())
