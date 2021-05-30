@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         binding.srArticles.setOnRefreshListener(this::fetchArticles);
         fetchArticles();
         PeriodicWorkRequest periodicWorkRequest
-                = new PeriodicWorkRequest.Builder(FetchArticlesWorker.class,1, TimeUnit.MINUTES)
+                = new PeriodicWorkRequest.Builder(FetchArticlesWorker.class,2, TimeUnit.MINUTES)
                 .build();
         WorkManager.getInstance(this).enqueue(periodicWorkRequest);
         setContentView(view);
